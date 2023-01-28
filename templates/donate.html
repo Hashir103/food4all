@@ -18,6 +18,29 @@
       label {
         padding: 1%;
       }
+      input[type="file"]::file-selector-button {
+  border: 2px solid #AFD0BF;
+  padding: 0.2em 0.4em;
+  border-radius: 0.4em;
+  background-color: #AFD0BF;
+  transition: 1s;
+  height: 25%;
+}
+
+input[type="file"]::-ms-browse:hover {
+  background-color: #808F87;
+  border: 2px solid #808F87;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #808F87;
+  border: 2px solid #808F87;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #808F87;
+  border: 2px solid #808F87;
+}
 
     </style>
 
@@ -146,7 +169,7 @@
             <div class="container">
               <form id="address-form" action="" method="get" autocomplete="off">
                 <label class="full-field">
-                  <span class="form-label">Organization*</span>
+                  <span class="form-label">Organization</span>
                 </label>
                 <input
                   id="company-name"
@@ -157,36 +180,36 @@
                 /> <br>
                 <label class="full-field">
                   <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
-                  <span class="form-label">Street*</span>
+                  <span class="form-label">Street</span>
                 </label>
                   <input
                     id="ship-address"
                     name="ship-address"
                     required
-                    style="width: 57%;" 
+                    style="width: 56.5%;" 
                     autocomplete="off"
                   />
                 <label class="full-field">
-                  <span class="form-label">City*</span>
+                  <span class="form-label">City</span>
                 </label>
                   <input placeholder="Kingston" id="locality" name="locality" required /><br>
                 <label class="slim-field-left">
-                  <span class="form-label">Province*</span>
+                  <span class="form-label">Province</span>
                 </label>
                   <input placeholder="Ontario" id="state" name="state" required />
                   
                 <label class="slim-field-right" for="postal_code">
-                  <span class="form-label">Postal code*</span>
+                  <span class="form-label">Postal Code</span>
                 </label>
                   <input placeholder="K7M 1A3"id="postcode" name="postcode" required />
                 <label class="full-field">
-                  <span class="form-label">Country/Region*</span>
+                  <span class="form-label">Country/Region</span>
                 </label>
                   <input placeholder="Canada" id="country" name="country" required />
 
                   <br>
                   <label class="full-field">
-                    <span class="form-label">Food Item Available*</span>
+                    <span class="form-label">Food Item Available</span>
                   </label>
                     <input placeholder="e.g. Rice" id="foodItem" name="foodItem" required />
         
@@ -199,9 +222,15 @@
                       <option value="non-perishable">Non-Perishable</option>
                   </select>
                   </label>
+                  <br>
+                  <label class="full-field">
+                    <span class="form-label">Upload Image:</span>
+                  </label>
+                  <input
+                  type="file" name="fileToUpload" id="fileToUpload">
         
                   <br>
-                <button type="button" class="btn btn-primary">Save Information</button>
+                <button type="button" class="btn btn-primary" onclick="SubmitFoodHandler()">Submit</button>
           
                 <!-- Reset button provided for development testing convenience.
             Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
@@ -217,6 +246,12 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE&callback=initAutocomplete&libraries=places&v=weekly"
   defer
 ></script>
+
+<script>
+  function SubmitFoodHandler() {
+    location.href = "/";
+  }
+</script>
 
 <!-- Remove the container if you want to extend the Footer to full width. -->
 <div class="container my-5">
