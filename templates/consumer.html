@@ -20,6 +20,15 @@
  * Copyright 2019 Google LLC. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
+var obj;
+fetch('/info')
+  .then(res => res.json())
+  .then(data => {
+    obj = data;
+   })
+  .then(() => {
+    console.log(obj);
+   });
 Object.defineProperty(exports, "__esModule", { value: true });
 var map;
 function initMap() {
@@ -32,8 +41,8 @@ function initMap() {
     var script = document.createElement("script");
     // This example uses a local copy of the GeoJSON stored at
     // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-    script.src =
-        "{{url_for('static', filename='data.js')}}";
+    eqfeed_callback(obj);
+      
     document.getElementsByTagName("head")[0].appendChild(script);
 }
 // Loop through the results array and place a marker for each
@@ -144,10 +153,8 @@ window.eqfeed_callback = eqfeed_callback;
         <label class="full-field">
           <span class="form-label">Pick Food:</span>
           <select>
-            <option value="Any">Any</option>
-            <option value="sweets">Sweets</option>
-            <option value="high-protein">High-Protein</option>
-            <option value="non-perishable">Non-Perishable</option>
+            <option value="">--Please choose an option--</option>
+            <option value="Starbucks">DONUTS - Starbucks, 121 Division St</option>
         </select>
         </label>
         <br><br>

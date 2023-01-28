@@ -25,6 +25,10 @@ def login_required(f):
     return wrap
 
 # use decorators to link the function to a url
+@app.route('/info')
+def json():
+    return render_template('info.json')
+
 @app.route('/')
 def home():
     return render_template('index.html')  # render a template
