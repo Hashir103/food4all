@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flask Intro</title>
+    <title>Consumer Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    
+        <!-- Style -->
+        <link rel="stylesheet" href="{{url_for('static', filename='styleform.css')}}">
+
+        <script>var exports = {};</script>
+        
+        <script>
+          "use strict";
+/**
+ * @license
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 2,
+        center: new google.maps.LatLng(2.8, -187.3),
+        mapTypeId: "terrain",
+    });
+    // Create a <script> tag and set the USGS URL as the source.
+    var script = document.createElement("script");
+    // This example uses a local copy of the GeoJSON stored at
+    // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+    script.src =
+        "{{url_for('static', filename='data.js')}}";
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+// Loop through the results array and place a marker for each
+// set of coordinates.
+var eqfeed_callback = function (results) {
+    var infoWindow = new google.maps.InfoWindow();
+    var _loop_1 = function (i) {
+        var coords = results.features[i].geometry.coordinates;
+        var latLng = new google.maps.LatLng(coords[1], coords[0]);
+        var name = results.features[i].name;
+        var address = results.features[i].formatted_address;
+        var food = results.features[i].food;
+        var image = results.features[i].img;
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title:`${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
+      <center><img src="{{url_for('static', filename='donuts.png')}}" width=25% height=25%></center>`,
+            label: "".concat(i + 1),
+            optimized: false
+        });
+        map.setCenter(latLng);
+        map.setZoom(15);
+        // Add a click listener for each marker, and set up the info window.
+        marker.addListener("click", function () {
+            infoWindow.close();
+            infoWindow.setContent(marker.getTitle());
+            infoWindow.open(marker.getMap(), marker);
+        });
+    };
+    for (var i = 0; i < results.features.length; i++) {
+        _loop_1(i);
+    }
+};
+window.initMap = initMap;
+window.eqfeed_callback = eqfeed_callback;
+
+        </script>
+
+        <style>
+          #map {
+            height: 500px;
+            width: 100%;
+          }
+        </style>
   </head>
   <body>
     <section>
@@ -30,9 +104,33 @@
       <!-- END nav -->
     </div>
     </section>
-    <div class="container">
-      <h1>Hello Consumer</h1>
-      <!-- Remove the container if you want to extend the Footer to full width. -->
+    <div class="content">
+      <div class="container">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+          <div class="col-md-12">
+            <div class="form h-100">
+              <h3>Available Food Locations</h3>
+              <p>
+                <div id="map"></div>
+              </p> 
+              
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises
+      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE&callback=initMap&v=weekly"
+      defer
+    ></script>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+   
 <div class="container my-5">
 
 	<footer class="bg-light text-center text-white" style="margin: 0%;">
