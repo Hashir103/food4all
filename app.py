@@ -1,12 +1,17 @@
 # import the Flask class from the flask module
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from functools import wraps
+from flask_googlemaps import GoogleMaps
 
 # create the application object
 app = Flask(__name__)
 
 # config
 app.secret_key = 'HashirRyanYash'
+app.config['GOOGLEMAPS_KEY'] = "AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE"
+
+# Initialize the extension
+GoogleMaps(app)
 
 # login required decorator
 def login_required(f):
@@ -58,4 +63,4 @@ def logout():
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
