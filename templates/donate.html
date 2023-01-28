@@ -1,121 +1,26 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Donate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{{url_for('static', filename='styleform.css')}}">
+
     <style>
-      /* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-#map {
-  height: 100%;
-}
+      label {
+        padding: 1%;
+      }
 
-/* 
- * Optional: Makes the sample page fill the window. 
- */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: rgb(104, 104, 104);
-}
-
-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 400px;
-  padding: 20px;
-}
-
-input {
-  width: 100%;
-  height: 1.2rem;
-  margin-top: 0;
-  padding: 0.5em;
-  border: 0;
-  border-bottom: 2px solid gray;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-}
-
-input:focus {
-  border-bottom: 4px solid black;
-}
-
-input[type=reset] {
-  width: auto;
-  height: auto;
-  border-bottom: 0;
-  background-color: transparent;
-  color: rgb(104, 104, 104);
-  font-size: 14px;
-}
-
-.title {
-  width: 100%;
-  margin-block-end: 0;
-  font-weight: 500;
-}
-
-.note {
-  width: 100%;
-  margin-block-start: 0;
-  font-size: 12px;
-}
-
-.form-label {
-  width: 100%;
-  padding: 0.5em;
-}
-
-.full-field {
-  flex: 400px;
-  margin: 15px 0;
-}
-
-.slim-field-left {
-  flex: 1 150px;
-  margin: 15px 15px 15px 0px;
-}
-
-.slim-field-right {
-  flex: 1 150px;
-  margin: 15px 0px 15px 15px;
-}
-
-.my-button {
-  background-color: #000;
-  border-radius: 6px;
-  color: #fff;
-  margin: 10px;
-  padding: 6px 24px;
-  text-decoration: none;
-}
-
-.my-button:hover {
-  background-color: #666;
-}
-
-.my-button:active {
-  position: relative;
-  top: 1px;
-}
-
-img.powered-by-google {
-  margin: 0.5em;
-}
     </style>
+
     <script>
       let autocomplete;
       let address1Field;
@@ -197,6 +102,7 @@ img.powered-by-google {
       window.initAutocomplete = initAutocomplete;
       </script>
 
+    <title>Donate</title>
   </head>
   <body>
     <section>
@@ -222,75 +128,94 @@ img.powered-by-google {
       <!-- END nav -->
     </div>
     </section>
-    <div class="container">
-      <h1>You are Logged in!</h1>
-      <p>Click <a href="/logout">here</a> to logout.</p>
-      </div>
-      <div class="container">
-      <form id="address-form" action="" method="get" autocomplete="off">
-        <label class="full-field">
-          <span class="form-label">Organization Name*</span>
-        </label>
-        <input
-          id="company-name"
-          name="company-name"
-          required
-          placeholder="ex. Mcdonald's"
-          autocomplete="off"
-        />
-        <label class="full-field">
-          <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
-          <span class="form-label">Main Address*</span>
-        </label>
-          <input
-            id="ship-address"
-            name="ship-address"
-            required
-            autocomplete="off"
-          />
-        <label class="full-field">
-          <span class="form-label">City*</span>
-        </label>
-          <input placeholder="Kingston" id="locality" name="locality" required />
-        <label class="slim-field-left">
-          <span class="form-label">State/Province*</span>
-        </label>
-          <input placeholder="Ontario" id="state" name="state" required />
-        <label class="slim-field-right" for="postal_code">
-          <span class="form-label">Postal code*</span>
-        </label>
-          <input placeholder="K7M 1A3"id="postcode" name="postcode" required />
-        <label class="full-field">
-          <span class="form-label">Country/Region*</span>
-        </label>
-          <input placeholder="Canada" id="country" name="country" required />
-
-          <label class="full-field">
-            <span class="form-label">Food Item Available*</span>
-          </label>
-            <input placeholder="e.g. Rice" id="foodItem" name="foodItem" required />
-
-          <label class="full-field">
-            <span class="form-label">Food Category:</span>
-            <select>
-              <option value="Any">Any</option>
-              <option value="sweets">Sweets</option>
-              <option value="high-protein">High-Protein</option>
-              <option value="non-perishable">Non-Perishable</option>
-          </select>
-          </label>
-
-
-        <button type="button" class="my-button">Save Information</button>
   
-        <!-- Reset button provided for development testing convenience.
-    Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
-        <input type="reset" value="Clear form" />
-      </form>
-      <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE&callback=initAutocomplete&libraries=places&v=weekly"
-      defer
-    ></script>
+
+  <div class="content">
+    <div class="container">
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3>Contact Information</h3>
+            
+            <p>
+              <a style="float: right;" href="/logout" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+              </a>
+              You've logged in successfully! Fill out the form to donate your unused wares. <br>
+            </p> 
+            <div class="container">
+              <form id="address-form" action="" method="get" autocomplete="off">
+                <label class="full-field">
+                  <span class="form-label">Organization*</span>
+                </label>
+                <input
+                  id="company-name"
+                  name="company-name"
+                  required
+                  placeholder="ex. Mcdonald's"
+                  autocomplete="off"
+                /> <br>
+                <label class="full-field">
+                  <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
+                  <span class="form-label">Street*</span>
+                </label>
+                  <input
+                    id="ship-address"
+                    name="ship-address"
+                    required
+                    style="width: 57%;" 
+                    autocomplete="off"
+                  />
+                <label class="full-field">
+                  <span class="form-label">City*</span>
+                </label>
+                  <input placeholder="Kingston" id="locality" name="locality" required /><br>
+                <label class="slim-field-left">
+                  <span class="form-label">Province*</span>
+                </label>
+                  <input placeholder="Ontario" id="state" name="state" required />
+                  
+                <label class="slim-field-right" for="postal_code">
+                  <span class="form-label">Postal code*</span>
+                </label>
+                  <input placeholder="K7M 1A3"id="postcode" name="postcode" required />
+                <label class="full-field">
+                  <span class="form-label">Country/Region*</span>
+                </label>
+                  <input placeholder="Canada" id="country" name="country" required />
+
+                  <br>
+                  <label class="full-field">
+                    <span class="form-label">Food Item Available*</span>
+                  </label>
+                    <input placeholder="e.g. Rice" id="foodItem" name="foodItem" required />
+        
+                  <label class="full-field">
+                    <span class="form-label">Food Category:</span>
+                    <select>
+                      <option value="Any">Any</option>
+                      <option value="sweets">Sweets</option>
+                      <option value="high-protein">High-Protein</option>
+                      <option value="non-perishable">Non-Perishable</option>
+                  </select>
+                  </label>
+        
+                  <br>
+                <button type="button" class="btn btn-primary">Save Information</button>
+          
+                <!-- Reset button provided for development testing convenience.
+            Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
+                <input type="reset" class="btn btn-primary" value="Clear form" />
+              </form>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  </form>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE&callback=initAutocomplete&libraries=places&v=weekly"
+  defer
+></script>
   </body>
 </html>
