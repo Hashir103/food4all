@@ -10,9 +10,33 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
 
 	</head>
 	<body>
+		<section>
+			<div class="container">
+				<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+				<div class="container">
+					<a class="navbar-brand" href="/"><img style="max-width: 10%; padding-left: 2%;" src="{{url_for('static', filename='imglogo.png')}}"><img style="max-width: 20%; padding-left: 2%;" src="{{url_for('static', filename='imglogo2.png')}}"></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span> Menu
+				  </button>
+				  <div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav ml-auto mr-md-3">
+						<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Donate</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+					  <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+					  <li class="dropdown nav-item d-md-flex align-items-center">
+				  </li>
+					</ul>
+				  </div>
+				</div>
+			  </nav>
+		<!-- END nav -->
+	  </div>
+		</section>
 	<section class="ftco-section">
 		<div class="container">
 
