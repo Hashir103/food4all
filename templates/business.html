@@ -210,6 +210,16 @@ img.powered-by-google {
       <div class="container">
       <form id="address-form" action="" method="get" autocomplete="off">
         <label class="full-field">
+          <span class="form-label">Organization Name*</span>
+        </label>
+        <input
+          id="company-name"
+          name="company-name"
+          required
+          placeholder="ex. Mcdonald's"
+          autocomplete="off"
+        />
+        <label class="full-field">
           <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
           <span class="form-label">Main Address*</span>
         </label>
@@ -220,26 +230,39 @@ img.powered-by-google {
             autocomplete="off"
           />
         <label class="full-field">
-          <span class="form-label">Apartment, unit, suite, or floor #</span>
-        </label>
-          <input id="address2" name="address2" />
-        <label class="full-field">
           <span class="form-label">City*</span>
         </label>
-          <input id="locality" name="locality" required />
+          <input placeholder="Kingston" id="locality" name="locality" required />
         <label class="slim-field-left">
           <span class="form-label">State/Province*</span>
         </label>
-          <input id="state" name="state" required />
+          <input placeholder="Ontario" id="state" name="state" required />
         <label class="slim-field-right" for="postal_code">
           <span class="form-label">Postal code*</span>
         </label>
-          <input id="postcode" name="postcode" required />
+          <input placeholder="K7M 1A3"id="postcode" name="postcode" required />
         <label class="full-field">
           <span class="form-label">Country/Region*</span>
         </label>
-          <input id="country" name="country" required />
-        <button type="button" class="my-button">Save address</button>
+          <input placeholder="Canada" id="country" name="country" required />
+
+          <label class="full-field">
+            <span class="form-label">Food Item Available*</span>
+          </label>
+            <input placeholder="e.g. Rice" id="foodItem" name="foodItem" required />
+
+          <label class="full-field">
+            <span class="form-label">Food Category:</span>
+            <select>
+              <option value="Any">Any</option>
+              <option value="sweets">Sweets</option>
+              <option value="high-protein">High-Protein</option>
+              <option value="non-perishable">Non-Perishable</option>
+          </select>
+          </label>
+
+
+        <button type="button" class="my-button">Save Information</button>
   
         <!-- Reset button provided for development testing convenience.
     Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
