@@ -56,7 +56,7 @@ var eqfeed_callback = function (results) {
             optimized: false
         });
         map.setCenter(latLng);
-        map.setZoom(15);
+        map.setZoom(13);
         // Add a click listener for each marker, and set up the info window.
         marker.addListener("click", function () {
             infoWindow.close();
@@ -113,8 +113,6 @@ window.eqfeed_callback = eqfeed_callback;
               <p>
                 <div id="map"></div>
               </p> 
-              
-
     <!-- 
       The `defer` attribute causes the callback to execute after the full HTML
       document has been parsed. For non-blocking uses, avoiding race conditions,
@@ -125,6 +123,40 @@ window.eqfeed_callback = eqfeed_callback;
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE&callback=initMap&v=weekly"
       defer
     ></script>
+    <h3>Pick Up Food</h3>
+    <form id="address-form" action="" method="get" autocomplete="off">
+      <label class="full-field">
+        <span class="form-label">Name:</span>
+      </label>
+      <input
+        id="company-name"
+        name="company-name"
+        required
+        style="width:23%;"
+        placeholder="Full Name"
+        autocomplete="off"
+      /> <br>
+        <label class="full-field">
+          <span class="form-label">Phone Number:</span>
+        </label>
+        <input type="tel" id="phone" placeholder="(xxx)-xxx-xxxx" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+        <br>
+        <label class="full-field">
+          <span class="form-label">Pick Food:</span>
+          <select>
+            <option value="Any">Any</option>
+            <option value="sweets">Sweets</option>
+            <option value="high-protein">High-Protein</option>
+            <option value="non-perishable">Non-Perishable</option>
+        </select>
+        </label>
+        <br><br>
+      <button type="button" class="btn btn-primary" onclick="SubmitFoodHandler()">Submit</button>
+
+      <!-- Reset button provided for development testing convenience.
+  Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
+      <input type="reset" class="btn btn-primary" value="Clear form" />
+    </form>
           </div>
         </div>
       </div>
