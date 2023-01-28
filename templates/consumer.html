@@ -32,9 +32,58 @@
     </section>
     <div class="container">
       <h1>Hello Consumer</h1>
-      <br>
-      <p><a href="/">Home</a>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate amet voluptatem in. Nobis explicabo itaque labore ipsa tenetur numquam dolorem ipsam nostrum, aliquid repudiandae exercitationem ducimus esse ad sunt libero autem doloremque possimus sed, nemo deserunt voluptate totam aspernatur! Quo natus alias nulla voluptatibus dolor maiores tenetur tempore dolore perspiciatis.</p>
+      <!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container my-5">
+
+	<footer class="bg-light text-center text-white" style="margin: 0%;">
+	<!-- Grid container -->
+	<div class="container p-4 pb-0">
+	  <!-- Section: Social media -->
+	  <section class="mb-4">
+		<!-- Facebook -->
+		<a
+		  class="btn btn-primary btn-floating m-1"
+		  style="background-color: #3b5998;
+		  border-radius: 10px;"
+		  href="#!"
+		  role="button"
+		  ><img width="15px" height="22px" src="{{url_for('static', filename='fb.png')}}" alt="" srcset=""></a>
+  
+		<!-- Twitter -->
+		<a
+		  class="btn btn-primary btn-floating m-1"
+		  style="background-color: #55acee;
+		  border-radius: 6px;"
+		  href="#!"
+		  role="button"
+		  ><img width="19px" height="20px" src="{{url_for('static', filename='tw.png')}}" alt="" srcset=""></i
+		></a>
+
+  
+		<!-- Instagram -->
+		<a
+		  class="btn btn-primary btn-floating m-1"
+		  style="background-color: #ac2bac;
+		  border-radius: 10px;"
+		  href="#!"
+		  role="button"
+		  ><img width="19px" height="20px" src="{{url_for('static', filename='ig.png')}}" alt="" srcset=""></i
+		></a>
+  
+	  </section>
+	  <!-- Section: Social media -->
+	</div>
+	<!-- Grid container -->
+  
+	<!-- Copyright -->
+	<div class="text-center p-3" style="background-color: #E2EFDE; color: #808F87;">
+	  © 2023 Copyright:
+	  <a style="color: #808F87;" href="https://google.ca/">food4all.org</a>
+	</div>
+	<!-- Copyright -->
+  </footer>
+	
+  </div>
     </div>
   </body>
 </html>
