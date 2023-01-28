@@ -7,12 +7,13 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to Flask!</h1>
+      <h1>Hello Business</h1>
+      <p><a href="/">Home</a>
       <br>
-      <p>Click <a href="/">here</a> to go home.</p>
       {% for message in get_flashed_messages() %}
         {{ message }}
       {% endfor %}
+      <p>Click <a href="/logout">here</a> to logout.</p>
     </div>
   </body>
 </html>

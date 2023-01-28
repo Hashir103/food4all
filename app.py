@@ -6,7 +6,7 @@ from functools import wraps
 app = Flask(__name__)
 
 # config
-app.secret_key = 'my precious'
+app.secret_key = 'HashirRyanYash'
 
 # login required decorator
 def login_required(f):
@@ -21,26 +21,31 @@ def login_required(f):
 
 # use decorators to link the function to a url
 @app.route('/')
-@login_required
 def home():
     return render_template('index.html')  # render a template
     # return "Hello, World!"  # return a string
 
-@app.route('/welcome')
+@app.route('/consumers')
+def consumers():
+    return render_template('consumer.html')  # render a template
+    # return "Hello, World!"  # return a string
+
+@app.route('/business')
+@login_required
 def welcome():
-    return render_template('welcome.html')  # render a template
+    return render_template('business.html')  # render a template
 
 # route for handling the login page logic
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+        if request.form['username'] != 'business' or request.form['password'] != 'owner':
             error = 'Invalid Credentials. Please try again.'
         else:
             session['logged_in'] = True
             flash('You were logged in.')
-            return redirect(url_for('home'))
+            return redirect(url_for('welcome'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')
@@ -48,9 +53,9 @@ def login():
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out.')
-    return redirect(url_for('welcome'))
+    return redirect(url_for('home'))
 
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
