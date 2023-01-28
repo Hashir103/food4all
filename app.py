@@ -35,10 +35,10 @@ def consumers():
     return render_template('consumer.html')  # render a template
     # return "Hello, World!"  # return a string
 
-@app.route('/business')
+@app.route('/donate')
 @login_required
 def welcome():
-    return render_template('business.html')  # render a template
+    return render_template('donate.html')  # render a template
 
 # route for handling the login page logic
 @app.route('/login', methods=['GET', 'POST'])

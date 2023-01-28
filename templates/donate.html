@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flask Intro</title>
+    <title>Donate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
@@ -209,8 +209,8 @@ img.powered-by-google {
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
               <ul class="navbar-nav ml-auto mr-md-3">
-                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Donate</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="/donate" class="nav-link">Donate</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
                 <li class="dropdown nav-item d-md-flex align-items-center">
@@ -223,12 +223,7 @@ img.powered-by-google {
     </div>
     </section>
     <div class="container">
-      <h1>Hello Business</h1>
-      <p><a href="/">Home</a>
-      <br>
-      {% for message in get_flashed_messages() %}
-        {{ message }}
-      {% endfor %}
+      <h1>You are Logged in!</h1>
       <p>Click <a href="/logout">here</a> to logout.</p>
       </div>
       <div class="container">
