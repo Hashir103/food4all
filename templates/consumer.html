@@ -15,72 +15,72 @@
         
         <script>
           "use strict";
-/**
- * @license
- * Copyright 2019 Google LLC. All Rights Reserved.
- * SPDX-License-Identifier: Apache-2.0
- */
-var obj;
-fetch('/info')
-  .then(res => res.json())
-  .then(data => {
-    obj = data;
-   })
-  .then(() => {
-    console.log(obj);
-   });
-Object.defineProperty(exports, "__esModule", { value: true });
-var map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 2,
-        center: new google.maps.LatLng(2.8, -187.3),
-        mapTypeId: "terrain",
-    });
-    // Create a <script> tag and set the USGS URL as the source.
-    var script = document.createElement("script");
-    // This example uses a local copy of the GeoJSON stored at
-    // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-    eqfeed_callback(obj);
-      
-    document.getElementsByTagName("head")[0].appendChild(script);
-}
-// Loop through the results array and place a marker for each
-// set of coordinates.
-var eqfeed_callback = function (results) {
-    var infoWindow = new google.maps.InfoWindow();
-    var _loop_1 = function (i) {
-        var coords = results.features[i].geometry.coordinates;
-        var latLng = new google.maps.LatLng(coords[1], coords[0]);
-        var name = results.features[i].name;
-        var address = results.features[i].formatted_address;
-        var food = results.features[i].food;
-        var image = results.features[i].img;
-        var marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            title:`${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
-      <center><img src="{{url_for('static', filename='donuts.png')}}" width=25% height=25%></center>`,
-            label: "".concat(i + 1),
-            optimized: false
-        });
-        map.setCenter(latLng);
-        map.setZoom(13);
-        // Add a click listener for each marker, and set up the info window.
-        marker.addListener("click", function () {
-            infoWindow.close();
-            infoWindow.setContent(marker.getTitle());
-            infoWindow.open(marker.getMap(), marker);
-        });
-    };
-    for (var i = 0; i < results.features.length; i++) {
-        _loop_1(i);
-    }
-};
-window.initMap = initMap;
-window.eqfeed_callback = eqfeed_callback;
+        /**
+         * @license
+         * Copyright 2019 Google LLC. All Rights Reserved.
+         * SPDX-License-Identifier: Apache-2.0
+         */
+        var obj;
+        fetch('/info')
+          .then(res => res.json())
+          .then(data => {
+            obj = data;
+          })
+          .then(() => {
+            console.log(obj);
+          });
+        Object.defineProperty(exports, "__esModule", { value: true });
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 2,
+                center: new google.maps.LatLng(2.8, -187.3),
+                mapTypeId: "terrain",
+            });
+            // Create a <script> tag and set the USGS URL as the source.
+            var script = document.createElement("script");
+            // This example uses a local copy of the GeoJSON stored at
+            // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+            eqfeed_callback(obj);
+              
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+        // Loop through the results array and place a marker for each
+        // set of coordinates.
+        var eqfeed_callback = function (results) {
+            var infoWindow = new google.maps.InfoWindow();
+            var _loop_1 = function (i) {
+                var coords = results.features[i].geometry.coordinates;
+                var latLng = new google.maps.LatLng(coords[1], coords[0]);
+                var name = results.features[i].name;
+                var address = results.features[i].formatted_address;
+                var food = results.features[i].food;
+                var image = results.features[i].img;
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    title:`${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
+              <center><img src="{{url_for('static', filename='donuts.png')}}" width=25% height=25%></center>`,
+                    label: "".concat(i + 1),
+                    optimized: false
+                });
+                map.setCenter(latLng);
+                map.setZoom(13);
+                // Add a click listener for each marker, and set up the info window.
+                marker.addListener("click", function () {
+                    infoWindow.close();
+                    infoWindow.setContent(marker.getTitle());
+                    infoWindow.open(marker.getMap(), marker);
+                });
+            };
+            for (var i = 0; i < results.features.length; i++) {
+                _loop_1(i);
+            }
+        };
+        window.initMap = initMap;
+        window.eqfeed_callback = eqfeed_callback;
 
-        </script>
+                </script>
 
         <style>
           #map {
