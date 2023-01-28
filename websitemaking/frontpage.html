@@ -7,10 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
+    <link rel="stylesheet" href="frontpage.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#B3deb3;">
     <section>
         <div class="container">
             <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -44,6 +49,11 @@
               <p class="business-description">
                 BUSINESS
               </p>
+              <p class="business-points">
+                &#183; Donating non perishable <br>
+                &#183; Are a large corporation <br>
+                &#183; Stuff
+              </p>
             </div>
             <div class="business-button-container">
               <button class="business-button">
@@ -58,6 +68,11 @@
             <p class="consumer-description">
               CONSUMER
             </p>
+            <p class="container-points">
+              &#183; Looking for some food <br>
+              &#183; Broke unemployed people <br>
+              &#183; Stuff
+            </p>
             <div class="consumer-button-container">
               <button class="consumer-button">
                 CONTINUE
@@ -65,6 +80,56 @@
               </div>
             </div>
           </div>
-      </div>
+        </div>
+        <div class="container my-5">
+
+        <footer class="bg-light text-center text-white" style="margin: 0%;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #3b5998;
+            border-radius: 10px;"
+            href="#!"
+            role="button"
+            ><img width="100%" height="100%" src="{{url_for('static', filename='fb.png')}}" alt="" srcset=""></a>
+        
+          <!-- Twitter -->
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #55acee;
+            border-radius: 6px;"
+            href="#!"
+            role="button"
+            ><img width="80%" height="100%" src="{{url_for('static', filename='tw.png')}}" alt="" srcset=""></i
+          ></a>
+      
+        
+          <!-- Instagram -->
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #ac2bac;
+            border-radius: 10px;"
+            href="#!"
+            role="button"
+            ><img width="100%" height="100%" src="{{url_for('static', filename='ig.png')}}" alt="" srcset=""></i
+          ></a>
+        
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #E2EFDE; color: #808F87;">
+          © 2023 Copyright:
+          <a style="color: #808F87;" href="https://google.ca/">food4all.org</a>
+        </div>
+        <!-- Copyright -->
+        </footer>
+    </div>
 </body>
 </html>
