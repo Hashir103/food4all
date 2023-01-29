@@ -10,6 +10,8 @@
     
         <!-- Style -->
         <link rel="stylesheet" href="{{url_for('static', filename='styleform.css')}}">
+        
+        <link rel="stylesheet" href="{{url_for('static', filename='pop.css')}}">
 
         <script>var exports = {};</script>
         
@@ -170,7 +172,25 @@
         </select>
         </label>
         <br><br>
-      <button type="button" class="btn btn-primary" onclick="SubmitFoodHandler()">Submit</button>
+
+        <button type="button" class="btn btn-primary" onclick="openPopup()">Submit</button> 
+        <div class="popup-pop" id="popup-pop">
+          <div class="popup-pop3"><img src="{{url_for('static', filename='tick.png')}}"></div>
+          <h2>Success!</h2>
+          <p><img style="width: 50%; height:50%;" src="{{url_for('static', filename='CONFIRMATION.png')}}"><br>Scan this QR when you come to pick up your Food!</p>
+          <button type="button" onclick="closePopup()">OK</button>
+        </div>
+      <script>
+        let popup = document.getElementById("popup-pop");
+        
+        function openPopup(){
+          popup.classList.add("open-popup-pop");
+        }
+        function closePopup(){
+          popup.classList.remove("open-popup-pop");
+          location.href = "/";
+        }
+      </script>
 
       <!-- Reset button provided for development testing convenience.
   Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
