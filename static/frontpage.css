@@ -251,17 +251,35 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 /* my shit */
 .front{
-  margin-top: 0.1%;
-  background: url(/styles/pics/consumer.jpeg);
+  position: relative; 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 734px;
+}
+.front::before{
+  content: "";
+  background: url(/static/consumer.jpeg);
   background-size: 100%, 44.4%;
   background-repeat: no-repeat;
-  height: 734px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
 }
 .users{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   padding-top: 8%;
+  position: relative;
+}
+.users
+:hover{
+  cursor: pointer;
 }
 .business,.consumer{
   background-color: white;
@@ -288,12 +306,12 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 }
 .business-logo{
   width:100%;
-  opacity: 70%;
+  opacity: 100%;
 }
 .consumer-logo{
   width:100%;
   height: 225px;
-  opacity: 70%;
+  opacity: 100%;
 }
 .business-description,
 .consumer-description{
@@ -302,6 +320,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
   text-align: center;
   margin-top: 10px;
   font-weight: 700;
+  color: #000;
 }
 .business-button-container,
 .consumer-button-container{
@@ -344,4 +363,5 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .container-points{
   margin-top: 20px;
   text-align: center;
+  color: #000;
 }

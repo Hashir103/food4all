@@ -1,84 +1,138 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Business Login</title>
+  	<title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-	<link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
-
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='stylenav.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='frontpage.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 	</head>
-	<body style="background-color: #B3deb3;">
+	<body style="background-color:#B3deb3;">
 		<section>
-			<div class="container">
-				<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
-				<div class="container">
-					<a class="navbar-brand" href="/"><img style="max-width: 10%; padding-left: 2%;" src="{{url_for('static', filename='imglogo.png')}}"><img style="max-width: 20%; padding-left: 2%;" src="{{url_for('static', filename='imglogo2.png')}}"></a>
-				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="fa fa-bars"></span> Menu
-				  </button>
-				  <div class="collapse navbar-collapse" id="ftco-nav">
-					<ul class="navbar-nav ml-auto mr-md-3">
-						<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-						<li class="nav-item active"><a href="#" class="nav-link">Donate</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">About</a></li>
-					  <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-					  <li class="dropdown nav-item d-md-flex align-items-center">
-				  </li>
-					</ul>
-				  </div>
-				</div>
-			  </nav>
+				<div class="container" style="margin-left:135px;">
+						<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light padding-nav" id="ftco-navbar" style="width:1140px; height: 81.79px; padding: 10;">
+						<div class="container" style="width:1120px; height:61.789">
+								<a class="navbar-brand" href="/"><img style="max-width: 68.15px; padding-left: 2%;" src="{{url_for('static', filename='imglogo.png')}}"><img style="max-width: 20%; padding-left: 2%;" src="{{url_for('static', filename='imglogo2.png')}}"></a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="fa fa-bars"></span> Menu
+							</button>
+							<div class="collapse navbar-collapse" style="width:396.87px; height:61.789" id="ftco-nav" >
+								<ul class="navbar-nav ml-auto mr-md-3">
+										<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+										<li class="nav-item active"><a href="#" class="nav-link">Donate</a></li>
+										<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+									<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+									<li class="dropdown nav-item d-md-flex align-items-center">
+							</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
 		<!-- END nav -->
-	  </div>
+	</div>
 		</section>
-	<section class="ftco-section">
-		<div class="container">
-
-			<div class="row justify-content-center">
-				<div class="col-md-7 col-lg-5">
-					<div class="login-wrap p-4 p-md-5">
-		      	<div class="icon d-flex align-items-center justify-content-center">
-		      		<span class="fa fa-user-o"></span>
-		      	</div>
-		      	<h3 class="text-center mb-4">Sign In</h3>
-						<form action="" method="post" class="login-form">
-		      		<div class="form-group">
-		      			<input type="text" class="form-control rounded-left" placeholder="Username" name="username" value="{{
-							request.form.username }}" required>
-		      		</div>
-	            <div class="form-group d-flex">
-	              <input type="password" class="form-control rounded-left" placeholder="Password" name="password" value="{{
-					request.form.password }}" required>
-	            </div>
-	            <div class="form-group">
-	            	<button type="submit" value="Login" class="form-control btn btn-primary rounded submit px-3">Login</button>
-	            </div>
-	            <div class="form-group d-md-flex">
-	            	<div class="w-50">
-	            		<label class="checkbox-wrap checkbox-primary" >Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-	            </div>
-	          </form>
-	        </div>
+		<div class="front">
+				<div class="users">
+					<div class="business">
+						<div class="business-logo-container">
+							<img class="business-logo" src="{{url_for('static', filename='business.jpeg')}}">
+						</div>
+						<div class="business-info">
+							<p class="business-description">
+								BUSINESS
+							</p>
+							<p class="business-points">
+								&#183; Food corporations interested in donating <br>
+								excess food to people in need.
+							</p>
+							<p class="business-points">
+								&#183; Sign-in required!
+							</p>
+						</div>
+						<div class="business-button-container">
+							<button class="business-button">
+								CONTINUE
+							</button>
+						</div>
+					</div>
+					<div class="consumer">
+						<div class="consumer-logo-container">
+							<img class="consumer-logo" src="{{url_for('static', filename='customer2.png')}}">
+						</div>
+						<p class="consumer-description">
+							CONSUMER
+						</p>
+						<p class="container-points">
+							&#183; Individuals interested in receiving additional food from food corporations.
+						</p>
+						<p class="container-points">
+							&#183; Look for food in your location!
+						</p>
+						<div class="consumer-button-container">
+							<button class="consumer-button">
+								CONTINUE
+							</button>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+	
+			<div class="container my-5">
+				<footer class="bg-light text-center text-white" style="margin: 0%;">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #3b5998;
+          border-radius: 10px;"
+          href="#!"
+          role="button"
+          ><img width="12px" height="1%" src="{{url_for('static', filename='fb.png')}}" alt="" srcset=""></a>
+      
+        <!-- Twitter -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #55acee;
+          border-radius: 6px;"
+          href="#!"
+          role="button"
+          ><img width="15px" height="1%" src="{{url_for('static', filename='tw.png')}}" alt="" srcset=""></i
+        ></a>
+    
+      
+        <!-- Instagram -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #ac2bac;
+          border-radius: 10px;"
+          href="#!"
+          role="button"
+          ><img width="17px" height="1%" src="{{url_for('static', filename='ig.png')}}" alt="" srcset=""></i
+        ></a>
+      
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+      
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #E2EFDE; color: #808F87;">
+        © 2023 Copyright:
+        <a style="color: #808F87;" href="https://google.ca/">food4all.org</a>
+      </div>
+      <!-- Copyright -->
+      </footer>
 		</div>
-	</section>
-
-	<script src="{{url_for('static', filename='jquery.min.js')}}"></script>
-  <script src="{{url_for('static', filename='popper.js')}}"></script>
-  <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
-  <script src="{{url_for('static', filename='main.js')}}"></script>
-
 	</body>
 </html>
 
