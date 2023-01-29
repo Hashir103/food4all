@@ -20,12 +20,12 @@
          * Copyright 2019 Google LLC. All Rights Reserved.
          * SPDX-License-Identifier: Apache-2.0
          */
-        var obj;
-        fetch('/info')
-          .then(res => res.json())
-          .then(data => {
-            obj = data;
-          })
+        // var obj;
+        // fetch('/info')
+        //   .then(res => res.json())
+        //   .then(data => {
+        //     obj = data;
+        //   })
         Object.defineProperty(exports, "__esModule", { value: true });
         var map;
         function initMap() {
@@ -38,7 +38,8 @@
             var script = document.createElement("script");
             // This example uses a local copy of the GeoJSON stored at
             // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-            eqfeed_callback(obj);
+            //eqfeed_callback(obj);
+            script.src = "{{url_for('static', filename='static.js')}}";
               
             document.getElementsByTagName("head")[0].appendChild(script);
         }
@@ -162,8 +163,10 @@
           <span class="form-label">Pick Food:</span>
           <select>
             <option value="">--Please choose an option--</option>
-            <option value="Timmies">DONUTS - Tim Hortons, 285 Earl St</option>
-            <option value="Starbucks">DONUTS - Starbucks, 121 Division St</option>
+            <option value="Timmies">1. DONUTS - Tim Hortons, 285 Earl St</option>
+            <option value="NoFrill">2. CHICKEN BREAST - No Frills, 1162 Division St</option>
+            <option value="Metro">3. CANNED FOOD - Metro, 310 Barrie St</option>
+            <option value="Starbucks">4. DONUTS - Starbucks, 121 Division St</option>
         </select>
         </label>
         <br><br>
