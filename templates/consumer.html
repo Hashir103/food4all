@@ -26,9 +26,6 @@
           .then(data => {
             obj = data;
           })
-          .then(() => {
-            console.log(obj);
-          });
         Object.defineProperty(exports, "__esModule", { value: true });
         var map;
         function initMap() {
@@ -56,16 +53,27 @@
                 var address = results.features[i].formatted_address;
                 var food = results.features[i].food;
                 var image = results.features[i].img;
+                if (image == "/can.png") {
+                  var imgTitle = `${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
+              <center><img src="{{url_for('static', filename='can.png')}}" width=25% height=25%></center>`
+                }
+                else if (image == "/chicken.png") {
+                  var imgTitle = `${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
+              <center><img src="{{url_for('static', filename='chicken.png')}}" width=25% height=25%></center>`
+                }
+                else {
+                  var imgTitle = `${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
+              <center><img src="{{url_for('static', filename='donuts.png')}}" width=25% height=25%></center>`
+                }
                 var marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
-                    title:`${name} <br> ${address} <br> <b>Available Item(s):</b> ${food} <br>
-              <center><img src="{{url_for('static', filename='donuts.png')}}" width=25% height=25%></center>`,
+                    title: imgTitle,
                     label: "".concat(i + 1),
                     optimized: false
                 });
                 map.setCenter(latLng);
-                map.setZoom(13);
+                map.setZoom(15);
                 // Add a click listener for each marker, and set up the info window.
                 marker.addListener("click", function () {
                     infoWindow.close();
@@ -154,6 +162,7 @@
           <span class="form-label">Pick Food:</span>
           <select>
             <option value="">--Please choose an option--</option>
+            <option value="Timmies">DONUTS - Tim Hortons, 285 Earl St</option>
             <option value="Starbucks">DONUTS - Starbucks, 121 Division St</option>
         </select>
         </label>
