@@ -10,6 +10,11 @@ app = Flask(__name__)
 app.secret_key = 'HashirRyanYash'
 app.config['GOOGLEMAPS_KEY'] = "AIzaSyBWkQvoVZn9ObPO_f_lUxOqSqMjK69q9RE"
 
+accounts = {
+    "STARBUCKS":["coffee", 1],
+    "HASHIR":["sami", 0]
+}
+val = 0
 # Initialize the extension
 GoogleMaps(app)
 
@@ -35,6 +40,7 @@ def home():
     # return "Hello, World!"  # return a string
 
 @app.route('/consumers')
+@login_required
 def consumers():
     return render_template('consumer.html')  # render a template
     # return "Hello, World!"  # return a string
@@ -49,12 +55,15 @@ def welcome():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'business' or request.form['password'] != 'owner':
+        if  accounts.get(request.form['username'].upper()) is None or request.form['password'] != accounts[request.form['username'].upper()][0]:
             error = 'Invalid Credentials. Please try again.'
         else:
             session['logged_in'] = True
             flash('You were logged in.')
-            return redirect(url_for('welcome'))
+            if accounts[request.form['username'].upper()][1] == 1:
+                return redirect(url_for('welcome'))
+            else:
+                return redirect(url_for('consumers'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')

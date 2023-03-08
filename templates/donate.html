@@ -171,15 +171,6 @@ input[type="file"]::file-selector-button:hover {
             <div class="container">
               <form id="address-form" action="" method="get" autocomplete="off">
                 <label class="full-field">
-                  <span class="form-label">Organization</span>
-                </label>
-                <input
-                  id="company-name"
-                  name="company-name"
-                  placeholder="e.g. Mcdonald's"
-                  autocomplete="off"
-                /> <br>
-                <label class="full-field">
                   <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
                   <span class="form-label">Street</span>
                 </label>
@@ -245,7 +236,7 @@ input[type="file"]::file-selector-button:hover {
                      }
                      function closePopup(){
                        popup.classList.remove("open-popup-pop");
-                       location.href = "/";
+                       location.href = "/logout";
                      }
                    </script>
           
